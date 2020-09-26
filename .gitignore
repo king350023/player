@@ -1,0 +1,11 @@
+.idea
+.settings
+.project
+node_modules
+*.iml
+bin-debug
+bin-release
+built
+reports
+package-lock.json
+*.DS_Store
