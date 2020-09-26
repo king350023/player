@@ -1,0 +1,45 @@
+.jwplayer {
+    .jw-media video {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        background: transparent;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+        outline: none;
+
+        // Hides the native play button pseudoelement in iOS
+        &::-webkit-media-controls-start-playback-button {
+            display: none;
+        }
+    }
+
+    &.jw-stretch-uniform {
+        .jw-media video {
+            object-fit: contain;
+        }
+    }
+
+    &.jw-stretch-none {
+        .jw-media video {
+            object-fit: none;
+        }
+    }
+
+    &.jw-stretch-fill {
+        .jw-media video {
+            object-fit: cover;
+        }
+    }
+
+    &.jw-stretch-exactfit {
+        .jw-media video {
+            object-fit: fill;
+        }
+    }
+}
