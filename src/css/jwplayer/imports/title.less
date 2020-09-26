@@ -1,0 +1,66 @@
+.jw-title {
+    &:extend(._top);
+    display: none;
+    padding-top: @ui-margin;
+    width: 100%;
+    z-index: 1;
+}
+
+// if we set color on the parent, it is overwritten by the reset
+.jw-title-primary,
+.jw-title-secondary {
+    color: @white;
+    // ensure there's padding even when the logo is positioned in the top-left
+    padding-left: @ui-margin;
+    padding-right: @ui-margin;
+    padding-bottom: 0.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: unset;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.jw-title-primary {
+    font-size: 1.625em;
+
+    .jw-breakpoint-2 &,
+    .jw-breakpoint-3 & {
+        font-size: 1.5em;
+    }
+
+    .jw-flag-small-player & {
+        font-size: 1.25em;
+    }
+
+    .jw-breakpoint-0 .jw-ab-truncated &,
+    .jw-breakpoint-1 .jw-ab-truncated &,
+    .jw-breakpoint-2 .jw-ab-truncated & {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        padding-bottom: 0;
+        margin-bottom: 0.5em;
+        white-space: pre-wrap;
+        line-height: 1.2;
+    }
+
+    .jw-breakpoint-1 .jw-ab-truncated & {
+        font-size: 1.25em;
+    }
+
+    .jw-breakpoint-0 .jw-ab-truncated & {
+        font-size: 1em;
+    }
+}
+
+.jw-title-secondary {
+    .jw-flag-small-player &,
+    .jw-breakpoint-0 .jw-ab-truncated &,
+    .jw-breakpoint-1 .jw-ab-truncated &,
+    .jw-breakpoint-2 .jw-ab-truncated &,
+    &:empty {
+        display: none;
+    }
+}
