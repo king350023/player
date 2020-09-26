@@ -1,0 +1,132 @@
+@import "../../shared-imports/vars.less";
+
+.jw-flag-audio-player {
+    background-color: @black;
+
+    &:not(.jw-flag-flash-blocked) .jw-media {
+        visibility: hidden;
+    }
+
+    .jw-title {
+        background: none;
+    }
+
+    // min 44px object tag prevents IE11 CORS Flash Blocking
+    object {
+        min-height: @mobile-touch-target;
+    }
+
+    &:not(.jw-flag-live) .jw-spacer {
+        display: none;
+    }
+
+    .jw-preview, // overrides 'block' from .jw-state-idle
+    .jw-display, // overrides 'block' from .jw-flag-touch.jw-state-paused
+    .jw-title, // overrides 'block' from .jw-state-idle
+    .jw-nextup-container {
+        display: none;
+    }
+
+    .jw-controlbar {
+        // prevents children from exploding out of this container when set too small
+        position: relative;
+
+        .jw-button-container {
+            padding-right: 3px;
+            padding-left: 0;
+        }
+
+        .jw-icon-tooltip,
+        .jw-icon-inline {
+            display: none;
+        }
+
+        .jw-icon-volume,
+        .jw-icon-playback,
+        .jw-icon-next,
+        .jw-icon-rewind,
+        .jw-icon-cast,
+        .jw-text-live,
+        .jw-icon-airplay,
+        .jw-logo-button,
+        .jw-text-elapsed,
+        .jw-text-duration {
+            display: flex;
+            flex: 0 0 auto;
+        }
+
+        .jw-text-duration,
+        .jw-text-countdown {
+            padding-right: 10px;
+        }
+
+        .jw-slider-time {
+            flex: 0 1 auto;
+            align-items: center;
+            display: flex;
+            order: 1;
+        }
+
+        .jw-icon-volume {
+            margin-right: 0;
+            transition: margin-right @default-transition;
+
+            .jw-overlay {
+                display: none;
+            }
+        }
+
+        .jw-horizontal-volume-container {
+            transition: width 300ms @default-timing-function;
+            width: 0;
+
+            &.jw-open {
+                width: @volume-rail-length;
+
+                .jw-slider-volume {
+                    padding-right: 24px;
+                    transition: opacity 300ms;
+                    opacity: 1;
+                }
+
+                ~ .jw-slider-time {
+                    flex: 1 1 auto;
+                    width: auto;
+                    transition: opacity 300ms, width 300ms;
+                }
+            }
+        }
+
+        .jw-slider-volume {
+            opacity: 0;
+
+            .jw-knob {
+                transform: translate(-50%, -50%);
+            }
+
+            ~ .jw-icon-volume {
+                margin-right: @volume-rail-length;
+            }
+        }
+    }
+
+    &.jw-breakpoint-1,
+    &.jw-breakpoint-2 {
+        .jw-horizontal-volume-container.jw-open ~ .jw-slider-time {
+            opacity: 0;
+        }
+    }
+
+    &.jw-flag-small-player {
+        .jw-text-elapsed,
+        .jw-text-duration {
+            display: none;
+        }
+    }
+
+    &.jw-flag-ads {
+        .jw-slider-time {
+            display: none;
+        }
+    }
+}
