@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: providers/utils/stream-type</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: providers/utils/stream-type</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".isDvr"><span class="type-signature">(static) </span>isDvr<span class="signature">(duration, minDvrWindow)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>It's DVR if the duration is not Infinity and above the minDvrWindow, Live otherwise.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>duration</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The duration or seekable range of a stream in seconds.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>minDvrWindow</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The duration threshold beyond which a stream should be treated as DVR instead of Live.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>DVR or not.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".streamType"><span class="type-signature">(static) </span>streamType<span class="signature">(duration, minDvrWindow)</span><span class="type-signature"> &rarr; {'VOD'|'LIVE'|'DVR'}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Determine the adaptive type.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>duration</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The duration or seekable range of a stream in seconds. Can be positive or negative.
+Positive or non-infinite values will result in a return value of 'VOD'. Infinite values always return 'LIVE'.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>minDvrWindow</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The duration threshold beyond which a stream should be treated as DVR instead of Live.
+minDvrWindow should always be positive.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The stream typeR.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">'VOD'</span>
+|
+
+<span class="param-type">'LIVE'</span>
+|
+
+<span class="param-type">'DVR'</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_errors.html">api/errors</a></li><li><a href="module-api_Setup.html">api/Setup</a></li><li><a href="module-events_events.html">events/events</a></li><li><a href="module-providers_html5.html">providers/html5</a></li><li><a href="module-providers_utils_stream-type.html">providers/utils/stream-type</a></li><li><a href="module-utils_validator.html">utils/validator</a></li></ul><h3>Classes</h3><ul><li><a href="Api.html">Api</a></li><li><a href="BackgroundMedia.html">BackgroundMedia</a></li><li><a href="CaptionsRenderer.html">CaptionsRenderer</a></li><li><a href="InstreamAdapter.html">InstreamAdapter</a></li><li><a href="module-api_errors-PlayerError.html">PlayerError</a></li><li><a href="module-api_Setup-Setup.html">Setup</a></li><li><a href="ProgramController.html">ProgramController</a></li><li><a href="Timer.html">Timer</a></li></ul><h3>Global</h3><ul><li><a href="global.html#jwplayer">jwplayer</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
