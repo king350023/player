@@ -1,0 +1,30 @@
+{
+  "source": {
+    "include": [
+      "./src/js/"
+    ],
+    "exclude": [
+      "./src/js/parsers/captions/vttcue.js",
+      "./src/js/polyfills/"
+    ]
+  },
+  "sourceType": "module",
+  "opts": {
+    "debug": true,
+    "destination": "docs/api",
+    "recurse": true,
+    "readme": "./docs/README-api.md"
+  },
+  "templates": {
+    "default": {
+      "outputSourceFiles": false,
+      "includeDate": false,
+      "useLongnameInNav": false
+    }
+  },
+  "plugins": ["./plugins/markdown"],
+  "markdown": {
+    "idIdHeadings": true,
+    "tags": ["deprecated"]
+  }
+}
