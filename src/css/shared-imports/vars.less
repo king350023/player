@@ -1,0 +1,81 @@
+@default-em-size: 16px;
+
+// mobile touch target size (iOS standard)
+@mobile-touch-target: 44px;
+
+// Colors
+@black: #000;
+@white: #fff;
+
+@active-color: @white;
+@inactive-color: fade(@white, 80%);
+@background-color: rgba(33, 33, 33, 0.8);
+
+
+@hover-color: @active-color;
+@controlbar-background: fade(@black, 40%);
+
+// Fonts
+@font-size: 0.75em;
+@font-color: @active-color;
+
+// UI
+@ui-padding: 0.5em;
+@ui-corner-round: 0.5px;
+@ui-margin: 20px;
+@ui-focus: solid 2px #4d90fe;
+
+// Controlbar
+// The controlbar height flexes to the height of the buttons (defined by the touch height) plus the height of the slider (defined by the knob height)
+@controlbar-icon-size: 0.5em;
+
+// Rails and sliders
+@rail-height: 5px;
+@slider-height: @rail-height;
+@def-rail-width: @rail-height;
+@def-rail-width-padding: 0.6em;
+@time-rail-width: @def-rail-width;
+@volume-rail-width: @def-rail-width;
+@volume-rail-length: 140px;
+@thumb-size: (@rail-height * 2);
+
+// Fixed slider
+@slider-fixed-height: (@mobile-touch-target / 2);
+@slider-fixed-rail-height: 5px;
+@slider-fixed-knob-height: 13px;
+@slider-fixed-knob-border-radius: 50%;
+
+// Volume tooltip
+@volume-background: @background-color;
+@volume-border: 0;
+@volume-padding: (@ui-padding * 2);
+@volume-border-radius: 0;
+
+// Text tooltip
+@tooltip-arrow-size: 14px;
+@tooltip-background-color: @white;
+@tooltip-color: @black;
+@tooltip-font-size: 10px;
+@tooltip-popup-delay: 500ms;
+
+// Next up display
+@nextup-text-color: @white;
+
+// Settings Menu
+@menu-background-color: lighten(@black, 20%);
+@menu-color: fade(@white, 90%);
+@menu-active-color: @white;
+
+// Transition animation
+@default-timing-function: cubic-bezier(0, 0.25, 0.25, 1);
+@default-transition: 150ms @default-timing-function;
+
+// Settings menu and floating player close buttons
+@dismiss-top-padding: 3px;
+@dismiss-right-padding: 5px;
+
+@rightclick-primary-text: #fff;
+@rightclick-secondary-text: #d2d2d2;
+@rightclick-bg: fade(@black, 80%);
+@rightclick-light-bg: @black;
+@rightclick-border: #444;

@@ -1,0 +1,17 @@
+@import "icons.less";
+
+.jw-autostart-mute {
+    .square(var(--jw-mobile-touch-target));
+    position: absolute;
+    bottom: 0;
+    right: 12px;
+    background-color: rgba(33, 33, 33, 0.4);
+    padding: 5px 4px 5px 6px;
+    display: none;
+}
+
+.jwplayer.jw-flag-autostart:not(.jw-flag-media-audio) {
+    .jw-nextup {
+        display: none;
+    }
+}
