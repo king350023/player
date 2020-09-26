@@ -1,0 +1,218 @@
+@import "../../shared-imports/mixins";
+@import "../../shared-imports/vars";
+
+.jw-controlbar {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    background-size: auto;
+    box-shadow: none;
+    max-height: 72px;
+    transition: 250ms cubic-bezier(0, 0.25, 0.25, 1);
+    transition-property: opacity, visibility;
+    transition-delay: 0s;
+
+    // adjust overlay bottom padding to match height of touch target
+    .jw-overlay {
+        &::after {
+            &:extend(._pseudo);
+            height: @slider-fixed-knob-height;
+        }
+    }
+
+    .jw-button-image {
+        width: 100%;
+        height: 100%;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: 20px;
+        opacity: 0.75;
+    }
+
+    .jw-spacer {
+        flex: 1 1 auto;
+        align-self: stretch;
+    }
+
+    .jw-icon.jw-button-color {
+        &:hover {
+            color: @hover-color;
+        }
+    }
+}
+
+.jw-button-container {
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 12px;
+
+    > .jw-icon:not(.jw-text) {
+        max-width: @mobile-touch-target;
+
+        &:before {
+            /* This hack is required to make sure that gradients display correctly */
+            /* stylelint-disable-next-line declaration-block-no-shorthand-property-overrides */
+            background: transparent none;
+            background-size: auto;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            height: auto;
+            padding: 0;
+        }
+    }
+}
+
+.jw-slider-horizontal {
+    background-color: transparent;
+}
+
+.jw-icon-inline {
+    position: relative;
+}
+
+.jw-icon-inline,
+.jw-icon-tooltip {
+    .square(@mobile-touch-target);
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.jw-icon-inline,
+.jw-icon-tooltip,
+.jw-slider-horizontal,
+.jw-text-elapsed,
+.jw-text-duration,
+.jw-text-countdown {
+    cursor: pointer;
+}
+
+.jw-text-elapsed,
+.jw-text-duration {
+    justify-content: flex-start;
+    width: fit-content;
+}
+
+.jw-icon-tooltip {
+    position: relative;
+}
+
+.jw-knob,
+.jw-icon-inline,
+.jw-icon-tooltip,
+.jw-icon-display,
+.jw-option:before {
+    &:hover {
+        color: @hover-color;
+    }
+}
+
+.jw-time-tip {
+    pointer-events: none;
+}
+
+.jw-icon-cast {
+    display: none;
+    margin: 0;
+    padding: 0;
+
+    button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+}
+
+.jw-icon-inline.jw-icon-volume {
+    display: none;
+}
+
+.jwplayer .jw-text-countdown {
+    display: none;
+}
+
+&.jw-flag-small-player {
+    .jw-display {
+        padding-top: @mobile-touch-target;
+        padding-bottom: (@mobile-touch-target * 1.5);
+    }
+}
+
+.jw-flag-small-player:not(.jw-flag-audio-player):not(.jw-flag-ads) {
+    .jw-controlbar {
+        .jw-button-container {
+            > .jw-icon-rewind,
+            > .jw-icon-next,
+            > .jw-icon-playback {
+                display: none;
+            }
+        }
+    }
+}
+
+.jw-flag-ads-vpaid,
+.jw-flag-autostart,
+.jw-flag-user-inactive.jw-state-playing,
+.jw-flag-user-inactive.jw-state-buffering {
+    &:not(.jw-flag-media-audio):not(.jw-flag-audio-player):not(.jw-flag-ads-vpaid-controls):not(.jw-flag-casting) {
+        .jw-controlbar {
+            visibility: hidden;
+            pointer-events: none;
+            opacity: 0;
+            transition-delay: 0s, 250ms;
+        }
+    }
+}
+
+.jwplayer&:not(.jw-flag-ads):not(.jw-flag-live) {
+    &.jw-breakpoint-0 {
+        .jw-text-countdown {
+            display: flex;
+        }
+
+        .jw-text-elapsed,
+        .jw-text-duration {
+            display: none;
+        }
+    }
+
+    .jw-icon-live:not(.jw-dvr-live) {
+        .jw-svg-icon-live {
+            display: none;
+        }
+
+        // padding between elapsed time in DVR mode
+        margin-right: 16px;
+    }
+}
+
+.jwplayer.jw-flag-live .jw-icon-live {
+    .jw-svg-icon-dvr {
+        display: none;
+    }
+}
+
+.jwplayer:not(.jw-breakpoint-0) {
+    .jw-text-duration {
+        &:before {
+            content: "/";
+            padding-right: 1ch;
+            padding-left: 1ch;
+        }
+    }
+}

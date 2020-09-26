@@ -1,0 +1,60 @@
+@import "icons";
+
+.jw-skip {
+    cursor: default;
+    position: absolute;
+    float: right;
+    display: flex;
+    right: 0.75em;
+    bottom: 3em;
+    padding: @ui-padding;
+    border-color: #333;
+    border-style: solid;
+    border-width: 1px;
+    background-color: #000;
+    align-items: center;
+    height: 2em;
+
+    &.jw-skippable {
+        cursor: pointer;
+        padding: 0.25em 0.75em;
+    }
+
+    .jw-skip-icon {
+        display: none;
+        margin-left: -0.75em;
+        padding: 0 0.5em;
+
+        .jw-svg-icon-next {
+            display: block;
+        }
+    }
+
+    .jw-text,
+    .jw-skip-icon {
+        vertical-align: middle;
+        font-size: 0.7em;
+    }
+
+    .jw-text {
+        color: #0b7ef4;
+        // Make bold to improve color contrast
+        font-weight: bold;
+    }
+
+    &.jw-skippable:hover {
+        cursor: pointer;
+
+        .jw-skip-icon {
+            color: @accent-color;
+        }
+    }
+
+    &.jw-skippable .jw-skip-icon {
+        display: inline;
+        height: 24px;
+        width: 24px;
+        margin: 0;
+        color: @inactive-color;
+    }
+}
