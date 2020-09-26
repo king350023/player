@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - 9
+
+cache: yarn
+
+before_script:
+  - yarn global add grunt-cli
+
+script:
+  - grunt
