@@ -1,0 +1,51 @@
+@import "icons";
+@import "tooltip";
+
+.jw-overlays,
+.jw-controls {
+    &:extend(._stretch, ._topleft, ._bottomright);
+    pointer-events: none; // Allow pointer events through to the provider
+}
+
+.jw-overlays {
+    cursor: auto;
+}
+
+.jw-controls {
+    overflow: hidden;
+    z-index: 0;
+
+    &::after {
+        &:extend(._pseudo, ._stretch, ._topleft);
+        background: linear-gradient(to bottom, transparent, fade(@black, 40%) 77%, fade(@black, 40%) 100%) 100% 100% / 100% 240px no-repeat transparent;
+        transition: opacity 250ms @default-timing-function;
+        z-index: -1;
+    }
+
+    .jw-flag-small-player & {
+        text-align: center;
+    }
+}
+
+.jw-text {
+    height: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: @font-size;
+    font-style: normal;
+    font-weight: normal;
+    color: @white;
+    text-align: center;
+    font-variant: normal;
+    font-stretch: normal;
+}
+
+/* These items can intercept pointer-events */
+.jw-controlbar,
+.jw-skip,
+.jw-display-icon-container,
+.jw-display-icon-container .jw-icon,
+.jw-nextup-container,
+.jw-autostart-mute,
+.jw-overlays .jw-plugin {
+    pointer-events: all;
+}
