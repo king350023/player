@@ -1,0 +1,31 @@
+@import "../imports/icons";
+
+.jwplayer.jw-state-complete {
+    .jw-preview:not(.jw-flag-casting) {
+        display: block;
+    }
+
+    .jw-display {
+        .jw-icon-display {
+            .jw-icon-replay;
+        }
+
+        .jw-display-icon-next,
+        .jw-display-icon-rewind,
+        .jw-text {
+            display: none;
+        }
+    }
+
+    .jw-icon-playback {
+        .jw-icon-replay;
+
+        &:before {
+            font-size: 1.55em;
+        }
+    }
+
+    .jw-captions {
+        display: none;
+    }
+}

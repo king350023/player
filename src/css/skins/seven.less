@@ -1,0 +1,59 @@
+@import "../imports/mixins";
+
+.jw-skin-seven {
+
+  @accent-color: #FFF;
+  @inactive-color: #cecece;
+
+  @controlbar-background: rgba(33, 33, 33, 0.8);
+  @display-bkgd-color: @controlbar-background;
+  @display-bkgd-hover-color: rgba(33, 33, 33, 1);
+
+  @controlbar-height: 2.5em;
+
+  #namespace > .basic-skin-styles();
+  #namespace > .set-global-color-classes();
+
+  .jw-display-icon-container {
+    border-radius: 3.5em;
+
+    &:hover {
+      .jw-icon {
+        color: @accent-color;
+      }
+    }
+  }
+
+  .jw-display-icon-container > .jw-icon {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .jw-dock-button {
+    // Seven skin dock buttons do not highlight, they only show the tooltip
+    &:hover{
+      background: @controlbar-background;
+    }
+    
+    border-radius: 2.5em;
+  }
+
+  .jw-menu {
+      padding: 0;
+    }
+
+  .jw-dock {
+    .jw-overlay {
+      border-radius: @ui-padding;
+    }
+  }
+  .jw-skip {
+    border-radius: @ui-padding;
+  }
+
+  .jw-text {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+}
