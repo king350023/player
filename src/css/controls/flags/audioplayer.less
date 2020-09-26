@@ -1,0 +1,39 @@
+.jw-flag-audio-player {
+    background-color: transparent;
+
+    &:not(.jw-flag-flash-blocked) .jw-media {
+        visibility: hidden;
+    }
+
+    .jw-title {
+        background: none;
+    }
+
+    // min 60px object tag prevents IE11 CORS Flash Blocking
+    object {
+        min-height: 60px;
+    }
+
+    .jw-preview, // overrides 'block' from .jw-state-idle
+    .jw-display, // overrides 'block' from .jw-flag-touch.jw-state-paused
+    .jw-title, // overrides 'block' from .jw-state-idle
+    .jw-nextup-container {
+        display: none;
+    }
+
+    .jw-controlbar {
+        position: relative; // prevents children from exploding out of this container when set too small
+        .jw-icon-tooltip,
+        .jw-icon-settings,
+        .jw-icon-inline:not(.jw-icon-volume):not(.jw-icon-playback):not(.jw-icon-fullscreen):not(.jw-icon-next) {
+            display: none;
+        }
+    }
+
+    &.jw-flag-small-player {
+        .jw-text-elapsed,
+        .jw-text-duration {
+            display: none;
+        }
+    }
+}

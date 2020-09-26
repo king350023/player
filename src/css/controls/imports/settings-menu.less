@@ -1,0 +1,114 @@
+@import "../../shared-imports/vars";
+
+.jw-settings-menu {
+    display: none;
+    position: absolute;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    bottom: @controlbar-height;
+    right: 0;
+    height: calc(100% - @controlbar-height);
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    pointer-events: auto;
+
+    .jw-settings-open & {
+        display: flex;
+    }
+
+    .jw-breakpoint-7 &,
+    .jw-breakpoint-6 &,
+    .jw-breakpoint-5 & {
+        height: 232px;
+        max-height: 232px;
+        width: 284px;
+        max-width: 284px;
+        right: 12px;
+    }
+
+    .jw-breakpoint-4 &,
+    .jw-breakpoint-3 & {
+        height: 192px;
+        max-height: 192px;
+        width: 284px;
+        max-width: 284px;
+        right: 12px;
+    }
+
+    .jw-icon.jw-button-color {
+        &:extend(.jw-controlbar .jw-icon.jw-button-color all);
+    }
+}
+
+.jw-settings-topbar {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    padding: 3px 5px;
+
+    .jw-settings-close {
+        margin-left: auto;
+    }
+}
+
+.jw-settings-submenu {
+    display: none;
+    flex: 1 1 auto;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding: 8px 20px 0 5px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        color: #171717;
+        border: 1px solid #323232;
+        border-radius: 6px;
+    }
+}
+
+.jw-settings-content-item {
+    color: #d2d2d2;
+    width: 100%;
+    font-size: 12px;
+    line-height: 1;
+    padding: 7px 0 7px 15px;
+    cursor: pointer;
+
+    &.jw-settings-item-active {
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+.jw-settings-submenu-active {
+    display: flex;
+}
+
+.jw-settings-open {
+    .jw-breakpoint-2 &,
+    .jw-breakpoint-1 &,
+    .jw-breakpoint-0 & {
+        .jw-display-container {
+            display: none;
+        }
+
+        &.jw-controls {
+            z-index: 1;
+        }
+    }
+
+    .jw-icon-settings {
+        color: @toggle-active;
+    }
+}

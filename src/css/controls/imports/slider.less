@@ -1,0 +1,162 @@
+@import "../../shared-imports/vars";
+
+.jw-slider-container {
+    display: flex;
+    height: 5px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    touch-action: none;
+}
+
+.jw-rail,
+.jw-buffer,
+.jw-progress {
+    position: absolute;
+    cursor: pointer;
+}
+
+.jw-progress {
+    background-color: @progress-color;
+}
+
+.jw-rail {
+    background-color: @rail-color;
+}
+
+.jw-buffer {
+    background-color: @buffer-color;
+}
+
+.jw-knob {
+    .square(@thumb-size);
+    border-radius: 50%;
+    pointer-events: none;
+    position: absolute;
+}
+
+.jw-slider-horizontal {
+    display: flex;
+
+    .jw-rail {
+        width: 100%;
+    }
+
+    .jw-rail,
+    .jw-buffer,
+    .jw-progress,
+    .jw-knob,
+    .jw-cue {
+        top: 50%;
+        transform: translate(0, -50%);
+    }
+
+    .jw-rail,
+    .jw-buffer,
+    .jw-progress {
+        height: @rail-height;
+    }
+}
+
+.jw-slider-vertical {
+    padding: 0.5em;
+
+    .jw-slider-container {
+        height: @volume-rail-length;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .jw-rail,
+    .jw-buffer,
+    .jw-progress {
+        bottom: 0;
+        height: calc(100% + @thumb-size);
+    }
+
+    .jw-slider-container,
+    .jw-rail,
+    .jw-progress {
+        width: @def-rail-width;
+    }
+
+    .jw-knob {
+        left: -50%;
+        margin-bottom: (-@thumb-size / 2);
+    }
+}
+
+.jw-slider-time {
+    .rect(100%, 16px);
+    align-items: flex-end;
+    background: transparent none;
+    padding: 0 12px;
+    z-index: 1;
+
+    .jw-rail,
+    .jw-buffer,
+    .jw-progress,
+    .jw-cue {
+        backface-visibility: hidden;
+        height: 100%;
+        transform: translate(0, -50%) scale(1, 0.6);
+        transition: transform 150ms ease-in-out;
+    }
+
+    .jw-cue {
+        background-color: @accent-color;
+        cursor: pointer;
+        position: relative;
+        width: 6px;
+    }
+
+    &:hover {
+        .jw-rail,
+        .jw-buffer,
+        .jw-progress,
+        .jw-cue {
+            transform: translate(0, -50%) scale(1, 1);
+        }
+    }
+
+    .jw-rail {
+        background-color: fade(@white, 20%);
+    }
+
+    .jw-buffer {
+        background-color: fade(@white, 40%);
+    }
+
+    .jw-knob {
+        background: @white;
+        border-radius: @slider-fixed-knob-border-radius;
+        box-shadow: 0 0 10px fade(@black, 40%);
+        height: @slider-fixed-knob-height;
+        opacity: 1;
+        transition: 150ms cubic-bezier(0, 0.25, 0.25, 1);
+        transition-property: opacity, transform;
+        transform: translate(-50%, -50%) scale(0);
+        width: @slider-fixed-knob-width;
+
+        .jw-flag-dragging & {
+            box-shadow: 0 0 26px fade(@black, 20%), 0 0 10px fade(@black, 40%), 0 0 0 6px fade(@white, 20%);
+        }
+    }
+
+    &:hover,
+    .jw-flag-dragging & {
+        .jw-knob {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+}
+
+.jw-tooltip-time {
+    position: absolute;
+}
+
+.jw-slider-volume {
+    .jw-buffer {
+        display: none;
+    }
+}
