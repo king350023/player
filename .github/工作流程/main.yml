@@ -31,3 +31,5 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+-名稱：DefenseCode ThunderScan操作
+  用途：defencecode/thunderscan-action@v1.0
