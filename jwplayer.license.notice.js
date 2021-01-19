@@ -4,7 +4,13 @@ const YEAR = new Date().getFullYear();
 const versions = {
     backbone: '1.1.2',
     'can-autoplay': '3.0.0',
-    'intersection-observer': '' + devDeps['intersection-observer'],
+    '_intersection-observer': `${devDeps['intersection-observer']}`,
+    get 'intersection-observer'() {
+        return this['_intersection-observer'];
+    },
+    set 'intersection-observer'(value) {
+        this['_intersection-observer'] = value;
+    },
     'promise-polyfill': '' + devDeps['promise-polyfill'],
     'vtt.js': '0.13.0',
     underscore: '1.6.0'
